@@ -1,0 +1,48 @@
+menu "MQTT mTLS OTA Demo Configuration"
+
+config WIFI_SSID
+    string "Wi-Fi SSID"
+    default "my-ssid"
+
+config WIFI_PASSWORD
+    string "Wi-Fi password"
+    default "my-password"
+
+config WIFI_MAXIMUM_RETRY
+    int "Wi-Fi maximum retry count"
+    default 5
+    range 0 20
+
+config MQTT_BROKER_URI
+    string "MQTT broker URI (use mqtts:// for TLS)"
+    default "mqtts://example.com:8883"
+
+config MQTT_CLIENT_ID
+    string "MQTT client ID"
+    default "esp32-mtls-client"
+
+config MQTT_USERNAME
+    string "MQTT username"
+    default ""
+
+config MQTT_SUB_TOPIC
+    string "MQTT subscription topic"
+    default "esp32/mtls/sub"
+
+config MQTT_PUB_TOPIC
+    string "MQTT publish topic"
+    default "esp32/mtls/pub"
+
+config OTA_UPDATE_URL
+    string "HTTPS OTA image URL"
+    default "https://example.com/firmware.bin"
+
+config OTA_AUTORUN
+    bool "Perform OTA check on boot"
+    default y
+
+config OTA_REBOOT_ON_UPDATE
+    bool "Reboot after successful OTA update"
+    default y
+
+endmenu
